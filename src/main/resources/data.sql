@@ -1,0 +1,5 @@
+-- IMPORTANT : Spring autodetect files "data.sql" to execute on DB start. RENAMING THE FILE ANYTHING ELSE WILL NOT WORK
+
+INSERT INTO PLAYLIST(ID, NAME, NUMBER_OF_SONGS, THUMBNAIL) VALUES(1, 'GENERAL', 30, 'hips');
+
+--INSERT INTO TRACK(ID, ARTIST, DATA, FEATURING, FILE_NAME, FILE_TYPE, TITLE, PLAYLIST_ID) VALUES(1, 'john', null, null, 'smithSong.mp3', 'mp3', 'smith', 1);

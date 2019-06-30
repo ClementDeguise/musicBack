@@ -10,6 +10,7 @@ import javax.validation.constraints.NotNull;
  *
  * The Spring Data JPA allows conventions to avoid creating custom queries
  *
+ * The file's contents will be stored as a byte array in the database
  *
  * **/
 @Entity
@@ -19,10 +20,18 @@ public class Track {
     @GeneratedValue
     private Long id; // long on 64 bit, int on 32 bit
 
-    @NotNull
-    private String songName;
+    private String title;
 
     @NotNull
+    private String fileName;
+
+    private String fileType;
+
+    // Lob = Large Object
+    @Lob
+    private byte[] data;
+
+
     private String artist;
 
     private String[] featuring ;
@@ -33,12 +42,11 @@ public class Track {
     // all entities must have an empty constructor
     public Track() {}
 
-    public Track(String artist, String songName, Playlist playlist) {
-        this.artist = artist;
-        this.songName = songName;
+    public Track(String fileName, String fileType, Playlist playlist, byte[] data) {
+        this.fileName = fileName;
+        this.fileType = fileType;
         this.playlist = playlist;
-        this.featuring = null;
-
+        this.data = data;
     }
 
 
@@ -49,8 +57,14 @@ public class Track {
     public String getArtist() { return this.artist; }
     public void setArtist(String artist) { this.artist = artist; }
 
-    public String getSongName() { return  this.songName; }
-    public void setSongName(String songName) { this.songName = songName; }
+    public String getTitle() { return  this.title; }
+    public void setTitle(String title) { this.title = title; }
+
+    public String getFileName() { return  this.fileName; }
+    public void setFileName(String fileName) { this.fileName = fileName; }
+
+    public String getFileType() { return  this.fileType; }
+    public void setFileType(String fileType) { this.fileType = fileType; }
 
     public String[] getFeaturing() { return this.featuring; }
     public void setFeaturing(String[] featuring) { this.featuring = featuring; }
@@ -60,6 +74,7 @@ public class Track {
 
     public String getPlaylistName() { return playlist.getName(); }
 
-
+    public byte[] getData() { return this.data; }
+    public void setData(byte[] data) { this.data = data; }
 
 }

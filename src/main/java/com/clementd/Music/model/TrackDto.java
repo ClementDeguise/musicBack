@@ -1,38 +1,35 @@
 package com.clementd.Music.model;
 
+
+/** Track Data Transfer Object
+ * A DTO is an object representing or not the initial object, here a track, that we will send back as the response to the request,
+ * to notify the front that we saved the track, with these information. The information may differ according to the front need
+ *
+ */
+
+
 public class TrackDto {
 
+    private String fileName;
+    private String fileDownloadUri;
+    private String fileType;
+    private long size;
 
-
-    private Long id;
-    private String songName;
-    private String artist;
-    private String[] featuring ;
-    private String playlistName;
-
-    // all entities must have an empty constructor
-    public TrackDto() {}
-
-    // constructor must be the same order as the original class
-    public TrackDto(Track track) {
-
-        this.id = track.getId();
-        this.songName = track.getSongName();
-        this.artist = track.getArtist();
-        this.featuring = track.getFeaturing();
-        this.playlistName = track.getPlaylistName();
-
+    public TrackDto(String fileName, String fileDownloadUri, String fileType, long size) {
+        this.fileName = fileName;
+        this.fileDownloadUri = fileDownloadUri;
+        this.fileType = fileType;
+        this.size = size;
     }
 
-
-    /** only getters **/
-    public Long getId() { return this.id; }
-    public String getArtist() { return this.artist; }
-    public String getSongName() { return  this.songName; }
-    public String[] getFeaturing() { return this.featuring; }
-    public String getPlaylist() { return this.playlistName; }
-
-
+    // getters only
+    public String getFileName() {  return this.fileName; }
+    public String getFileDownloadUri() { return this.fileDownloadUri; }
+    public String getFileType() { return this.fileType; }
+    public long getSize() { return this.size; }
 
 
 }
+
+
+

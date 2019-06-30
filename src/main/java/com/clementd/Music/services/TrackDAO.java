@@ -2,7 +2,7 @@ package com.clementd.Music.services;
 
 import com.clementd.Music.model.Track;
 import org.springframework.data.jpa.repository.JpaRepository;
-
+import org.springframework.stereotype.Repository;
 
 /** Data Access Object, interface provides access to retrieving, saving, updating data into the database with native methods
  * (findById, ...)  that generates the queries.
@@ -12,6 +12,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  *  The Spring Data JPA allows conventions to avoid creating custom queries.
  */
-public interface TrackDAO extends JpaRepository<Track, Long> {
+@Repository
+public interface TrackDAO extends JpaRepository<Track, Long>, TrackCustomDAO {
 
 }
