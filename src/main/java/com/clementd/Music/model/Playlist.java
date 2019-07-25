@@ -8,6 +8,7 @@ import javax.validation.constraints.NotNull;
  * database
  * **/
 @Entity
+@Table(name = "PLAYLIST")
 public class Playlist {
 
     @Id

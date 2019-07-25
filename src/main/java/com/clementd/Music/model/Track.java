@@ -14,6 +14,7 @@ import javax.validation.constraints.NotNull;
  *
  * **/
 @Entity
+@Table(name = "TRACKS")
 public class Track {
 
     @Id
